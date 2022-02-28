@@ -1,10 +1,10 @@
 This is Henry Jiang's 2021-2022 Science Fair project. This README details input information. For information on the algorithm/project, read the PDF. 
 
-The first line should be Type: [Standard|XV|Ineq|Inequality|Cage]. Not case sensitive. This details the sudoku type. 
+The first line should be Type: [Standard|XV|Ineq]. Not case sensitive. This details the sudoku type. For what these mean, see the paper.
 
 # Standard
 
-For standard sudokus, just type a 9 by 9 matrix with no spaces. If a cell is not given, insert a 0. Example:
+For standard sudokus, just type a 9 by 9 matrix with no spaces (line breaks optional). If a cell is not given, insert a 0. Example:
 
 ```
 Type: Sudoku
@@ -68,12 +68,3 @@ Type: Ineq
 --<->----
 0-0<0-0>0>0-0-0-0
 ```
-
-# Cage
-
-First give the sudoku grid. Then give the number of cages. Before each cage, put '-'.
-
-```
-5
-```
-
