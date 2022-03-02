@@ -1,6 +1,12 @@
 This is Henry Jiang's 2021-2022 Science Fair project. This README details input information. For information on the algorithm/project, read the PDF. 
 
-The first line should be Type: [Standard|XV|Ineq]. Not case sensitive. This details the sudoku type. For what these mean, see the paper.
+The first line should be ```[Standard|XV|Ineq]```. Not case sensitive. This details the sudoku type. For what these mean, see the paper.
+The second line should be ```[simple|recurse|backtrack|links]```. Not case sensitive. This details the algorithm.
+
+Test cases I used:
+Standard Sudoku test cases came from [here](http://lipas.uwasa.fi/~timan/sudoku/).
+
+XV and Inequality sudoku test cases came from the first few Google Image results.
 
 # Standard
 
@@ -21,50 +27,67 @@ Type: Sudoku
 
 # XV
 
-Insert '-' between cells and between rows for no symbol, 'X' for X, and 'V' for V (not case sensitive). Example:
+Insert '-' for no symbol 'X' for X, and 'V' for V (not case sensitive). Put the ones between two horizontally adjacent cells on a 9 by 8 grid after the numbers, then the ones between two vertically adjacent in a 8 by 9 grid after that. Line breaks optional. Example (the one in the paper):
 
 ```
 Type: XV
-0-0-0X0-0-0-0-0X0
-V---X-V--
-0-0-0-0-0-0V0X0-0
+000000000
+000000000
+002000405
+000000000
+000000000
+000000000
+504000100
+000000000
+000000000
+--x----x
+-----vx-
+----x--x
+x-----x-
+--------
+---x---x
+x--x---x
+-------x
+v---x-v--
 ---------
-0-0-2-0X0-0-4-0-5
----V-X---
-0-0-0-0-0X0-0-0X0
--V-------
-0X0-0-0-0-0-0X0-0
-----XX--V
-0-0-0-0-0-0-0-0-0
-----V----
-5-0-4-0X0-0-1-0X0
+---v-x---
+-v-------
+----xx--v
+----v----
 ---------
-0X0-0-0X0-0-0-0X0
 ---------
-0-0-0-0-0-0-0-0X0
 ```
 
 # Ineq/Inequality
 
-Between cells, insert > for left greater than right, < for right greater than left. Between rows, insert > for top greater than bottom and < for bottom greater than top. If no symbol was given, use '-'. Example:
+Insert > for left greater than right, < for right greater than left, insert > for top greater than bottom and < for bottom greater than top. If no symbol was given, use '-'. Put a 9 by 8 after the numbers for horizontally adjacent cells, then 8 by 9 for the vertically adjacent.
 
 ```
 Type: Ineq
-0-0-0-0-0>0-0-0-0
+000000000
+000000000
+000000000
+000000000
+000000000
+000000000
+000000000
+000000000
+000000000
+---->---
+--->---<
+<<-<-<><
+----<---
+>->--->>
+-->---<-
+->-><>--
+<-------
+-<->>---
 <---><-<>
-0-0-0-0>0-0-0-0<0
 <<---<---
-0<0<0-0<0-0<0>0<0
 ->-><----
-0-0-0-0-0<0-0-0-0
 -------><
-0>0-0>0-0-0-0>0>0
 <---<->-<
-0-0-0>0-0-0-0<0-0
 ><<>-->>>
-0-0>0-0>0<0>0-0-0
 ><-----<-
-0<0-0-0-0-0-0-0-0
 --<->----
-0-0<0-0>0>0-0-0-0
 ```

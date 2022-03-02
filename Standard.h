@@ -12,9 +12,6 @@ public:
     // Constructor from a grid
     Sudoku(const vector<vector<int>>& in);
 
-    // Gets the ith row of the sudoku
-    vector<int>& operator[](int i);
-
     // Gets the ith term of the sudoku
     int& term(int i);
 private:
@@ -25,22 +22,31 @@ private:
 ostream& operator<<(ostream& os, Sudoku &s);
 
 // Returns a list of lists, each containing the possible numbers in that cell.
-vector<vector<int>> possibles(Sudoku & s);
+vector<pair<int,vector<int>>> possibles(Sudoku &s);
 
 // Returns false if the number at (row,col) violates the sudoku
+// The most important function.
 bool works(Sudoku& s, int x);
 
 // Simple solution (backtracking - naive)
 Sudoku simple(Sudoku in);
 
+// Similar to the Simple solution, but implemented recursively.
+// https://www.geeksforgeeks.org/sudoku-backtracking-7/
+Sudoku recurse(Sudoku in);
+
+// Helps with the recurse function
+pair<Sudoku,bool> recurse_helper(Sudoku& in, vector<int>& empty_cells, unsigned int curpos);
+
 // Solves a sudoku with more optimized backtracking
 // Detailed in https://arxiv.org/pdf/1203.2295.pdf
 Sudoku backtrack(Sudoku in);
 
-// Solves a sudoku with the markup (pencil-and-paper) strategy
-// Also prints a set of steps to os
-// Detailed in http://www.ams.org/notices/200904/rtx090400460p.pdf
-Sudoku markup(Sudoku in,ostream& os);
+// Like the backtrack function, but recursive.
+Sudoku backtrack_recurse(Sudoku in);
+
+// Helper for backtrack_recurse
+pair<Sudoku,bool> backtrack_recurse_helper(Sudoku& in, vector<pair<int,vector<int>>>& allowed, unsigned int curpos);
 
 // Solves a sudoku with the Dancing Links
 // Detailed in https://arxiv.org/pdf/cs/0011047.pdf
