@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-#include "XV.h"
+#include "Standard.h"
 using namespace std::chrono;
 
 int main(){
     vector<vector<int>> a(9,vector<int>(9,0));
-    vector<vector<char>> h(9,vector<char>(8,0));
-    vector<vector<char>> v(8,vector<char>(9,0));
     char c;
     for(int i = 0; i < 9; ++i){
         for(int j = 0; j < 9; ++j){
@@ -16,21 +14,9 @@ int main(){
             else a[i][j] = (int)(c - '0');
         }
     }
-    for(int i = 0; i < 9; ++i){
-        for(int j = 0; j < 8; ++j){
-            cin >> c;
-            h[i][j] = c;
-        }
-    }
-    for(int i = 0; i < 8; ++i){
-        for(int j = 0; j < 9; ++j){
-            cin >> c;
-            v[i][j] = c;
-        }
-    }
-    Sudoku x(a,h,v);
+    Sudoku x(a);
     auto start = high_resolution_clock::now();
-    backtrack(x);
+    recurse(x);
     auto stop = high_resolution_clock::now();
     // cout << "Solved Sudoku: " << endl;
     // for(int i = 0; i < 81; ++i){

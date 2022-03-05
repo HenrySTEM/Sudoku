@@ -4,7 +4,11 @@ The first line should be ```[Standard|XV|Ineq]```. Not case sensitive. This deta
 The second line should be ```[simple|recurse|backtrack|links]```. Not case sensitive. This details the algorithm.
 
 Test cases I used:
-Standard Sudoku test cases came from [here](http://lipas.uwasa.fi/~timan/sudoku/).
+Standard Sudoku test cases came from [here](http://lipas.uwasa.fi/~timan/sudoku/) (1,Medium,4,Escargot,Hard).
+
+XV test cases came from [here](https://www.funwithpuzzles.com/2016/02/xv-sudoku.html) and the 2017 Sudoku Grand Prix [in this video](https://www.youtube.com/watch?v=9ATC_uBF8ow).
+
+Inequality test case from [here](https://www.funwithpuzzles.com/2015/03/inequality-sudoku-fun-with-sudoku-40.html).
 
 XV and Inequality sudoku test cases came from the first few Google Image results.
 
