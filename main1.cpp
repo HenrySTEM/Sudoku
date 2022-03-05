@@ -5,6 +5,7 @@
 using namespace std::chrono;
 
 int main(){
+    string s; cin >> s;
     vector<vector<int>> a(9,vector<int>(9,0));
     char c;
     for(int i = 0; i < 9; ++i){
@@ -16,7 +17,10 @@ int main(){
     }
     Sudoku x(a);
     auto start = high_resolution_clock::now();
-    recurse(x);
+    if(s == "ei") simple(x);
+    if(s == "er") recurse(x);
+    if(s == "si") backtrack(x);
+    if(s == "sr") backtrack_recurse(x);
     auto stop = high_resolution_clock::now();
     // cout << "Solved Sudoku: " << endl;
     // for(int i = 0; i < 81; ++i){
