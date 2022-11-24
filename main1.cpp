@@ -22,12 +22,9 @@ int main(){
     if(s == "si") backtrack(x);
     if(s == "sr") backtrack_recurse(x);
     auto stop = high_resolution_clock::now();
-    // cout << "Solved Sudoku: " << endl;
-    // for(int i = 0; i < 81; ++i){
-    //     cout << x.term(i);
-    //     if(i % 9 == 8) cout << endl;
-    // }
-    //cout << x << endl;
+    x = recurse(x);
+    cout << "Solved Sudoku: " << endl;
+    cout << x << endl;
     auto duration = duration_cast<microseconds>(stop - start);
     long double time = duration.count();
     cout << time/(1e3) << endl;
